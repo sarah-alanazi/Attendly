@@ -23,5 +23,3 @@ My Role:
 - Documented the project in this README and prepared the initial concept for GitHub.
 
 Note: This is an initial repository to document the idea and establish project ownership. It will be updated as the project develops into a real application.
-
-https://github.com/sarah-alanazi/Attendly/blob/main/Attendly%20By%20Sarah.pptx
