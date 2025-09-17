@@ -1,3 +1,9 @@
+# Attendly
+
+Idea: A system to track student attendance fairly and transparently using QR Codes and GPS.
+
+Problem: Some university classrooms have glass barriers, and the instructor cannot properly verify attendance, allowing some students to register attendance for absent friends.
+
 Solution:  
 - Each student scans a QR code inside the classroom.  
 - The system verifies their GPS location and links the account to a single device only.  
