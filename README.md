@@ -1,9 +1,3 @@
-# Attendly
-
-Idea: A system to track student attendance fairly and transparently using QR Codes and GPS.
-
-Problem: Some university classrooms have glass barriers, and the instructor cannot properly verify attendance, allowing some students to register attendance for absent friends.
-
 Solution:  
 - Each student scans a QR code inside the classroom.  
 - The system verifies their GPS location and links the account to a single device only.  
@@ -13,6 +7,8 @@ Solution:
   - 🔴 Absent  
 - Students can submit objections with a live photo within 24 hours if there is an error in location tracking.  
 - Instructor dashboard for reviewing attendance and objections.
+
+![Attendly Screenshot](https://github.com/sarah-alanazi/Attendly/blob/cc28a9c3371c241d3bcf0f50d06474ad03c41021/pic.jpg)
 
 My Role:  
 - Designed the student interface and instructor dashboard layout.  
