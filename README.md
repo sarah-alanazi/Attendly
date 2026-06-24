@@ -110,9 +110,16 @@ cp config/db.example.php config/db.php
 
 ## 📸 Screenshots
 
-| Login Page | Admin Dashboard | Attendance QR Scan |
-|------------|----------------|-------------------|
-| *(add screenshot)* | *(add screenshot)* | *(add screenshot)* |
+**Login Page**
+![Login Page](screenshot_login.png)
+
+**Admin Dashboard**
+![Admin Dashboard](screenshot_dashboard.png)
+
+**QR Code Attendance**
+![QR Code Scan](screenshot_qr.png)
+
+
 
 ---
 
@@ -125,12 +132,16 @@ The system follows a **3-tier architecture**:
 
 ---
 
-## 👩‍💻 Development Name
+## 👩‍💻 About This Project
 
-| Name |
-|------|
-| Sarah Al-anazi |
+ATTENDLY was developed as a **team graduation project** at Northern Border University. This repository represents my personal contribution — **Sarah Al-Anazi**.
 
+**My Role:**
+- Designed and implemented the student interface and instructor dashboard
+- Built the QR code generation and scanning logic
+- Developed the location verification and reliability classification system
+- Implemented the appeals and notifications modules
+- Structured and managed the MySQL database
 
 ---
 
