@@ -1,0 +1,409 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ATTENDLY | Users</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet"/>
+
+  <link rel="stylesheet" href="/attendly/public/assets/css/theme.css">
+  <link rel="stylesheet" href="/attendly/public/assets/css/base.css">
+  <link rel="stylesheet" href="/attendly/public/assets/css/components.css">
+
+  <link rel="stylesheet" href="/attendly/public/admin/shared/admin.css">
+</head>
+
+<body class="att-body">
+  <div class="adm-layout">
+
+    <aside class="adm-sidebar d-none d-lg-flex">
+      <div class="adm-side-header">
+        <div class="adm-brand">
+          <div class="adm-mark" aria-hidden="true">
+            <span class="m1"></span><span class="m2"></span><span class="m3"></span>
+          </div>
+          <div>
+            <div class="adm-brand-title">ATTENDLY</div>
+            <div class="adm-brand-sub">Admin Panel</div>
+          </div>
+        </div>
+      </div>
+
+      <nav class="adm-menu">
+        <a class="adm-item" href="/attendly/public/admin/dashboard/index.html">
+          <span class="adm-ic"><i class="fa-solid fa-grip"></i></span>
+          <span class="adm-txt">Dashboard</span>
+        </a>
+
+        <a class="adm-item active" href="/attendly/public/admin/users/index.html">
+          <span class="adm-ic"><i class="fa-solid fa-users"></i></span>
+          <span class="adm-txt">Users</span>
+        </a>
+
+        <a class="adm-item" href="/attendly/public/admin/courses/index.html">
+          <span class="adm-ic"><i class="fa-solid fa-book"></i></span>
+          <span class="adm-txt">Courses</span>
+        </a>
+
+        <a class="adm-item" href="/attendly/public/admin/classes/index.html">
+          <span class="adm-ic"><i class="fa-solid fa-building-columns"></i></span>
+          <span class="adm-txt">Classes</span>
+        </a>
+
+        <a class="adm-item" href="/attendly/public/admin/reports/index.html">
+          <span class="adm-ic"><i class="fa-solid fa-chart-line"></i></span>
+          <span class="adm-txt">Reports</span>
+        </a>
+
+        <a class="adm-item" href="/attendly/public/admin/alerts/index.html">
+          <span class="adm-ic"><i class="fa-solid fa-triangle-exclamation"></i></span>
+          <span class="adm-txt">Alerts</span>
+        </a>
+
+        <div class="adm-sep"></div>
+
+        <button id="btnLogout" class="adm-item danger" type="button">
+          <span class="adm-ic"><i class="fa-solid fa-arrow-right-from-bracket"></i></span>
+          <span class="adm-txt">Logout</span>
+        </button>
+      </nav>
+
+      <div class="adm-side-footer">
+        <div class="adm-footline">
+          <span class="adm-footdot"></span>
+          <span>System secured</span>
+        </div>
+        <div class="adm-mini">© 2026 ATTENDLY</div>
+      </div>
+    </aside>
+
+    <div class="offcanvas offcanvas-start adm-offcanvas" tabindex="-1" id="mobileSidebar">
+      <div class="offcanvas-header adm-offcanvas-header">
+        <div class="adm-brand">
+          <div class="adm-mark" aria-hidden="true">
+            <span class="m1"></span><span class="m2"></span><span class="m3"></span>
+          </div>
+          <div>
+            <div class="adm-brand-title">ATTENDLY</div>
+            <div class="adm-brand-sub">Admin Panel</div>
+          </div>
+        </div>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+
+      <div class="offcanvas-body p-0">
+        <nav class="adm-menu p-3">
+          <a class="adm-item" href="/attendly/public/admin/dashboard/index.html">
+            <span class="adm-ic"><i class="fa-solid fa-grid-2"></i></span>
+            <span class="adm-txt">Dashboard</span>
+          </a>
+
+          <a class="adm-item active" href="/attendly/public/admin/users/index.html">
+            <span class="adm-ic"><i class="fa-solid fa-users"></i></span>
+            <span class="adm-txt">Users</span>
+          </a>
+
+          <a class="adm-item" href="/attendly/public/admin/courses/index.html">
+            <span class="adm-ic"><i class="fa-solid fa-book"></i></span>
+            <span class="adm-txt">Courses</span>
+          </a>
+
+          <a class="adm-item" href="/attendly/public/admin/classes/index.html">
+            <span class="adm-ic"><i class="fa-solid fa-building-columns"></i></span>
+            <span class="adm-txt">Classes</span>
+          </a>
+
+          <a class="adm-item" href="/attendly/public/admin/reports/index.html">
+            <span class="adm-ic"><i class="fa-solid fa-chart-line"></i></span>
+            <span class="adm-txt">Reports</span>
+          </a>
+
+          <a class="adm-item" href="/attendly/public/admin/alerts/index.html">
+            <span class="adm-ic"><i class="fa-solid fa-triangle-exclamation"></i></span>
+            <span class="adm-txt">Alerts</span>
+          </a>
+
+          <div class="adm-sep"></div>
+
+          <button id="btnLogoutM" class="adm-item danger w-100 text-start" type="button">
+            <span class="adm-ic"><i class="fa-solid fa-arrow-right-from-bracket"></i></span>
+            <span class="adm-txt">Logout</span>
+          </button>
+        </nav>
+      </div>
+    </div>
+
+    <div class="adm-main">
+      <header class="adm-topbar">
+        <div class="adm-top-left">
+          <button class="btn adm-burger d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileSidebar" aria-label="Open menu">
+            <i class="fa-solid fa-bars"></i>
+          </button>
+
+          <div>
+            <div class="adm-page-title">Users</div>
+            <div class="adm-page-sub">Manage students and instructors</div>
+          </div>
+        </div>
+
+        <div class="adm-top-right">
+          <button id="btnUsersRefresh" class="btn adm-icon-btn" type="button" title="Refresh">
+            <i class="fa-solid fa-rotate"></i>
+          </button>
+
+          <button class="btn adm-icon-btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#filtersCanvas" title="Filters">
+            <i class="fa-solid fa-filter"></i>
+          </button>
+
+          <div class="adm-userpill">
+            <span class="adm-userdot"></span>
+            <span id="adminName">Admin</span>
+          </div>
+        </div>
+      </header>
+
+      <main class="adm-content">
+
+        <div class="row g-3 align-items-center mb-2">
+          <div class="col-12 col-lg-6">
+            <div class="input-group">
+              <span class="input-group-text bg-white border rounded-start-4"><i class="fa-solid fa-magnifying-glass"></i></span>
+              <input id="inpSearch" class="form-control border rounded-end-4"
+                     type="search"
+                     placeholder="Search by name, username, email..."
+                     autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false">
+            </div>
+          </div>
+
+          <div class="col-12 col-lg-6 d-flex gap-2 justify-content-lg-end">
+            <button id="btnOpenCreate" class="btn btn-primary rounded-4 fw-bold px-3" type="button">
+              <i class="fa-solid fa-user-plus me-2"></i>Add User
+            </button>
+          </div>
+        </div>
+
+        <div class="d-flex flex-wrap gap-2 mb-3">
+          <span id="chipRole" class="adm-chip">Role: All</span>
+          <span id="chipStatus" class="adm-chip">Status: All</span>
+          <span id="chipCount" class="adm-chip">0 Users</span>
+          <span id="pagerInfo" class="adm-chip">Page 1</span>
+        </div>
+
+        <div class="adm-card">
+          <div class="adm-card-head">
+            <div>
+              <div class="adm-card-title">Users List</div>
+              <div class="adm-card-sub">View, edit, suspend, and manage accounts</div>
+            </div>
+
+            <div class="d-flex gap-2">
+              <button id="btnPrev" class="btn btn-light border rounded-4 fw-bold px-3" type="button">
+                <i class="fa-solid fa-chevron-left me-2"></i>Prev
+              </button>
+              <button id="btnNext" class="btn btn-light border rounded-4 fw-bold px-3" type="button">
+                Next<i class="fa-solid fa-chevron-right ms-2"></i>
+              </button>
+            </div>
+          </div>
+
+          <div class="adm-table">
+            <div class="table-responsive">
+              <table class="table align-middle mb-0">
+                <thead class="adm-th">
+                  <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Role</th>
+                    <th>Status</th>
+                    <th>Created</th>
+                    <th class="text-end">Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="usersTbody"></tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+      </main>
+    </div>
+  </div>
+
+  <div class="offcanvas offcanvas-end" tabindex="-1" id="filtersCanvas">
+    <div class="offcanvas-header">
+      <h5 class="mb-0 fw-bold">Filters</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+
+    <div class="offcanvas-body">
+      <div class="mb-3">
+        <label class="form-label fw-bold">Role</label>
+        <select id="fRole" class="form-select rounded-4">
+          <option value="">All</option>
+          <option value="student">Student</option>
+          <option value="instructor">Instructor</option>
+        </select>
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label fw-bold">Status</label>
+        <select id="fStatus" class="form-select rounded-4">
+          <option value="">All</option>
+          <option value="active">Active</option>
+          <option value="suspended">Suspended</option>
+        </select>
+      </div>
+
+      <div class="d-flex gap-2">
+        <button id="btnApplyFilters" class="btn btn-primary rounded-4 fw-bold flex-fill" type="button">
+          Apply
+        </button>
+        <button id="btnResetFilters" class="btn btn-light border rounded-4 fw-bold flex-fill" type="button">
+          Reset
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="userModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content rounded-4 border-0">
+        <div class="modal-header border-0 pb-0">
+          <h5 id="userModalTitle" class="modal-title fw-bold">Add User</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+
+        <div class="modal-body pt-2">
+          <div id="userFormErr" class="alert alert-danger rounded-4 d-none mb-3"></div>
+
+          <div class="row g-2">
+            <div class="col-12">
+              <label class="form-label fw-bold">Role</label>
+              <select id="uRole" class="form-select rounded-4">
+                <option value="student">Student</option>
+                <option value="instructor">Instructor</option>
+              </select>
+            </div>
+
+            <div class="col-12">
+              <label class="form-label fw-bold">Username</label>
+              <input id="uUsername" class="form-control rounded-4" type="text" autocomplete="off">
+            </div>
+
+            <div class="col-12" id="passWrap">
+              <label class="form-label fw-bold">Password</label>
+              <input id="uPassword" class="form-control rounded-4" type="password" autocomplete="new-password">
+            </div>
+
+            <div class="col-12 col-md-6">
+              <label class="form-label fw-bold">First Name</label>
+              <input id="uFirst" class="form-control rounded-4" type="text" autocomplete="off">
+            </div>
+
+            <div class="col-12 col-md-6">
+              <label class="form-label fw-bold">Last Name</label>
+              <input id="uLast" class="form-control rounded-4" type="text" autocomplete="off">
+            </div>
+
+            <div class="col-12">
+              <label class="form-label fw-bold">Email</label>
+              <input id="uEmail" class="form-control rounded-4" type="email" autocomplete="off">
+            </div>
+
+            <div class="col-12">
+              <label class="form-label fw-bold">Status</label>
+              <select id="uActive" class="form-select rounded-4">
+                <option value="1">Active</option>
+                <option value="0">Suspended</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <div class="modal-footer border-0">
+          <button type="button" class="btn btn-light border rounded-4 fw-bold px-3" data-bs-dismiss="modal">
+            Cancel
+          </button>
+          <button id="btnSaveUser" type="button" class="btn btn-primary rounded-4 fw-bold px-3">
+            Save
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="offcanvas offcanvas-end" tabindex="-1" id="detailsCanvas">
+    <div class="offcanvas-header">
+      <div>
+        <div id="dName" class="fw-bold fs-5">User</div>
+        <div id="dSub" class="adm-muted">ID: —</div>
+      </div>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+
+    <div class="offcanvas-body">
+      <div class="adm-card mb-3">
+        <div class="p-3">
+          <div class="d-flex justify-content-between mb-2">
+            <div class="adm-muted">Username</div>
+            <div id="dUsername" class="fw-bold">—</div>
+          </div>
+          <div class="d-flex justify-content-between mb-2">
+            <div class="adm-muted">Email</div>
+            <div id="dEmail" class="fw-bold">—</div>
+          </div>
+          <div class="d-flex justify-content-between mb-2">
+            <div class="adm-muted">Role</div>
+            <div id="dRole" class="fw-bold">—</div>
+          </div>
+          <div class="d-flex justify-content-between mb-2">
+            <div class="adm-muted">Status</div>
+            <div id="dStatus" class="fw-bold">—</div>
+          </div>
+          <div class="d-flex justify-content-between">
+            <div class="adm-muted">Created</div>
+            <div id="dCreated" class="fw-bold">—</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="d-flex gap-2">
+        <button id="btnEditFromDetails" class="btn btn-light border rounded-4 fw-bold flex-fill" type="button">
+          <i class="fa-solid fa-pen me-2"></i>Edit
+        </button>
+        <button id="btnToggleStatus" class="btn btn-warning rounded-4 fw-bold flex-fill" type="button">
+          Suspend
+        </button>
+      </div>
+
+      <button id="btnDeleteFromDetails" class="btn btn-outline-danger rounded-4 fw-bold w-100 mt-3" type="button">
+        <i class="fa-solid fa-trash me-2"></i>Delete
+      </button>
+    </div>
+  </div>
+
+  <div class="modal fade" id="confirmDeleteModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content rounded-4 border-0">
+        <div class="modal-header border-0 pb-0">
+          <h5 class="modal-title fw-bold">Delete User</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body pt-2">
+          <div class="adm-muted">This action cannot be undone.</div>
+        </div>
+        <div class="modal-footer border-0">
+          <button type="button" class="btn btn-light border rounded-4 fw-bold px-3" data-bs-dismiss="modal">Cancel</button>
+          <button id="btnConfirmDelete" type="button" class="btn btn-danger rounded-4 fw-bold px-3">Delete</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="/attendly/public/admin/shared/admin.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script type="module" src="/attendly/public/admin/users/index.js"></script>
+</body>
+</html>

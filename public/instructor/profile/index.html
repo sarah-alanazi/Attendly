@@ -1,0 +1,401 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ATTENDLY | Profile</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="/attendly/public/assets/css/theme.css">
+  <link rel="stylesheet" href="/attendly/public/assets/css/base.css">
+  <link rel="stylesheet" href="/attendly/public/assets/css/components.css">
+  <link rel="stylesheet" href="/attendly/public/instructor/shared/instructor.css">
+</head>
+
+<body class="att-body">
+  <div class="ins-layout">
+
+    <aside class="ins-sidebar d-none d-lg-flex">
+      <div class="ins-side-header">
+        <div class="ins-brand">
+          <div class="ins-mark" aria-hidden="true">
+            <span class="m1"></span><span class="m2"></span><span class="m3"></span>
+          </div>
+          <div>
+            <div class="ins-brand-title">ATTENDLY</div>
+            <div class="ins-brand-sub">Instructor Panel</div>
+          </div>
+        </div>
+      </div>
+
+      <nav class="ins-menu">
+        <a class="ins-item" href="/attendly/public/instructor/dashboard/index.html">
+          <span class="ins-ic"><i class="fa-solid fa-grip"></i></span>
+          <span class="ins-txt">Dashboard</span>
+        </a>
+
+        <a class="ins-item" href="/attendly/public/instructor/classes/index.html">
+          <span class="ins-ic"><i class="fa-solid fa-building-columns"></i></span>
+          <span class="ins-txt">My Classes</span>
+        </a>
+
+        <a class="ins-item" href="/attendly/public/instructor/attendance/index.html">
+          <span class="ins-ic"><i class="fa-solid fa-clipboard-check"></i></span>
+          <span class="ins-txt">Attendance</span>
+        </a>
+
+        <a class="ins-item" href="/attendly/public/instructor/reports/index.html">
+          <span class="ins-ic"><i class="fa-solid fa-chart-line"></i></span>
+          <span class="ins-txt">Reports</span>
+        </a>
+
+        <a class="ins-item" href="/attendly/public/instructor/alerts/index.html">
+          <span class="ins-ic"><i class="fa-solid fa-triangle-exclamation"></i></span>
+          <span class="ins-txt">Alerts</span>
+        </a>
+
+        <a class="ins-item" href="/attendly/public/instructor/appeals/index.html">
+          <span class="ins-ic"><i class="fa-solid fa-file-circle-question"></i></span>
+          <span class="ins-txt">Appeals</span>
+        </a>
+
+        <a class="ins-item" href="/attendly/public/instructor/notifications/index.html">
+          <span class="ins-ic"><i class="fa-solid fa-bell"></i></span>
+          <span class="ins-txt">Notifications</span>
+        </a>
+
+        <a class="ins-item active" href="/attendly/public/instructor/profile/index.html">
+          <span class="ins-ic"><i class="fa-solid fa-user"></i></span>
+          <span class="ins-txt">Profile</span>
+        </a>
+
+        <div class="ins-sep"></div>
+
+        <button id="btnLogoutSide" class="ins-item danger" type="button">
+          <span class="ins-ic"><i class="fa-solid fa-arrow-right-from-bracket"></i></span>
+          <span class="ins-txt">Logout</span>
+        </button>
+      </nav>
+
+      <div class="ins-side-footer">
+        <div class="ins-footline">
+          <span class="ins-footdot"></span>
+          <span>Instructor access active</span>
+        </div>
+        <div class="ins-mini">© 2026 ATTENDLY</div>
+      </div>
+    </aside>
+
+    <div class="offcanvas offcanvas-start ins-offcanvas" tabindex="-1" id="mobileSidebar">
+      <div class="offcanvas-header ins-offcanvas-header">
+        <div class="ins-brand">
+          <div class="ins-mark" aria-hidden="true">
+            <span class="m1"></span><span class="m2"></span><span class="m3"></span>
+          </div>
+          <div>
+            <div class="ins-brand-title">ATTENDLY</div>
+            <div class="ins-brand-sub">Instructor Panel</div>
+          </div>
+        </div>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+
+      <div class="offcanvas-body p-0">
+        <nav class="ins-menu p-3">
+          <a class="ins-item" href="/attendly/public/instructor/dashboard/index.html">
+            <span class="ins-ic"><i class="fa-solid fa-grip"></i></span>
+            <span class="ins-txt">Dashboard</span>
+          </a>
+
+          <a class="ins-item" href="/attendly/public/instructor/classes/index.html">
+            <span class="ins-ic"><i class="fa-solid fa-building-columns"></i></span>
+            <span class="ins-txt">My Classes</span>
+          </a>
+
+          <a class="ins-item" href="/attendly/public/instructor/attendance/index.html">
+            <span class="ins-ic"><i class="fa-solid fa-clipboard-check"></i></span>
+            <span class="ins-txt">Attendance</span>
+          </a>
+
+          <a class="ins-item" href="/attendly/public/instructor/reports/index.html">
+            <span class="ins-ic"><i class="fa-solid fa-chart-line"></i></span>
+            <span class="ins-txt">Reports</span>
+          </a>
+
+          <a class="ins-item" href="/attendly/public/instructor/alerts/index.html">
+            <span class="ins-ic"><i class="fa-solid fa-triangle-exclamation"></i></span>
+            <span class="ins-txt">Alerts</span>
+          </a>
+
+          <a class="ins-item" href="/attendly/public/instructor/appeals/index.html">
+            <span class="ins-ic"><i class="fa-solid fa-file-circle-question"></i></span>
+            <span class="ins-txt">Appeals</span>
+          </a>
+
+          <a class="ins-item" href="/attendly/public/instructor/notifications/index.html">
+            <span class="ins-ic"><i class="fa-solid fa-bell"></i></span>
+            <span class="ins-txt">Notifications</span>
+          </a>
+
+          <a class="ins-item active" href="/attendly/public/instructor/profile/index.html">
+            <span class="ins-ic"><i class="fa-solid fa-user"></i></span>
+            <span class="ins-txt">Profile</span>
+          </a>
+
+          <div class="ins-sep"></div>
+
+          <button id="btnLogoutSideM" class="ins-item danger w-100 text-start" type="button">
+            <span class="ins-ic"><i class="fa-solid fa-arrow-right-from-bracket"></i></span>
+            <span class="ins-txt">Logout</span>
+          </button>
+        </nav>
+      </div>
+    </div>
+
+    <div class="ins-main">
+      <header class="ins-topbar">
+        <div class="ins-top-left">
+          <button class="btn ins-burger d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileSidebar" aria-label="Open menu">
+            <i class="fa-solid fa-bars"></i>
+          </button>
+
+          <div>
+            <div class="ins-page-title">Profile</div>
+            <div class="ins-page-sub">View and manage your personal account information</div>
+          </div>
+        </div>
+
+        <div class="ins-top-right">
+          <button id="btnRefresh" class="btn ins-icon-btn" type="button" title="Refresh">
+            <i class="fa-solid fa-rotate"></i>
+          </button>
+
+          <button id="btnTopProfile" class="btn adm-userpill" type="button">
+            <span class="ins-userdot"></span>
+            <span id="topUserName">Instructor</span>
+          </button>
+        </div>
+      </header>
+
+      <main class="ins-content">
+        <section class="row g-3">
+          <div class="col-12 col-xl-8">
+            <div class="ins-card">
+              <div class="ins-card-head">
+                <div>
+                  <div class="ins-card-title">Profile Information</div>
+                  <div class="ins-card-sub">Your personal and account details</div>
+                </div>
+                <span class="ins-badge">Instructor Account</span>
+              </div>
+
+              <div class="p-3">
+                <div class="row g-3">
+                  <div class="col-12 col-md-6">
+                    <div class="adm-overbox h-100">
+                      <div class="adm-over-ico"><i class="fa-solid fa-user"></i></div>
+                      <div>
+                        <div class="adm-over-title">Full Name</div>
+                        <div class="adm-over-text" id="fullNameText">—</div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-12 col-md-6">
+                    <div class="adm-overbox h-100">
+                      <div class="adm-over-ico"><i class="fa-solid fa-at"></i></div>
+                      <div>
+                        <div class="adm-over-title">Username</div>
+                        <div class="adm-over-text" id="usernameText">—</div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-12 col-md-6">
+                    <div class="adm-overbox h-100">
+                      <div class="adm-over-ico"><i class="fa-solid fa-envelope"></i></div>
+                      <div>
+                        <div class="adm-over-title">Email</div>
+                        <div class="adm-over-text" id="emailText">—</div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-12 col-md-6">
+                    <div class="adm-overbox h-100">
+                      <div class="adm-over-ico"><i class="fa-solid fa-user-tag"></i></div>
+                      <div>
+                        <div class="adm-over-title">Role</div>
+                        <div class="adm-over-text" id="roleText">—</div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-12 col-md-6">
+                    <div class="adm-overbox h-100">
+                      <div class="adm-over-ico"><i class="fa-solid fa-shield-halved"></i></div>
+                      <div>
+                        <div class="adm-over-title">Account Status</div>
+                        <div class="adm-over-text" id="statusText">—</div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-12 col-md-6">
+                    <div class="adm-overbox h-100">
+                      <div class="adm-over-ico"><i class="fa-solid fa-calendar-plus"></i></div>
+                      <div>
+                        <div class="adm-over-title">Created At</div>
+                        <div class="adm-over-text" id="createdAtText">—</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="adm-sysinfo mt-3">
+                  <div><strong>Note:</strong> You can update your personal profile information from this page.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12 col-xl-4">
+            <div class="ins-card">
+              <div class="ins-card-head">
+                <div>
+                  <div class="ins-card-title">Actions</div>
+                  <div class="ins-card-sub">Manage your account settings</div>
+                </div>
+              </div>
+
+              <div class="ins-actions">
+                <button id="btnOpenEditProfile" class="ins-action border-0 text-start" type="button">
+                  <div class="ins-action-ico"><i class="fa-solid fa-pen-to-square"></i></div>
+                  <div>
+                    <div class="ins-action-title">Edit Profile</div>
+                    <div class="ins-action-sub">Update full name, username, and email</div>
+                  </div>
+                  <div class="ins-action-go"><i class="fa-solid fa-arrow-right"></i></div>
+                </button>
+
+                <button id="btnOpenChangePassword" class="ins-action border-0 text-start" type="button">
+                  <div class="ins-action-ico"><i class="fa-solid fa-key"></i></div>
+                  <div>
+                    <div class="ins-action-title">Change Password</div>
+                    <div class="ins-action-sub">Update your current account password</div>
+                  </div>
+                  <div class="ins-action-go"><i class="fa-solid fa-arrow-right"></i></div>
+                </button>
+
+                <button id="btnOpenLogout" class="ins-action border-0 text-start" type="button">
+                  <div class="ins-action-ico"><i class="fa-solid fa-arrow-right-from-bracket"></i></div>
+                  <div>
+                    <div class="ins-action-title">Logout</div>
+                    <div class="ins-action-sub">Sign out from your instructor account</div>
+                  </div>
+                  <div class="ins-action-go"><i class="fa-solid fa-arrow-right"></i></div>
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <div class="modal fade" id="editProfileModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content rounded-4">
+        <div class="modal-header">
+          <h5 class="modal-title">Edit Profile</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+
+        <div class="modal-body">
+          <div class="mb-3">
+            <label class="form-label fw-bold">First Name</label>
+            <input id="editFirstName" type="text" class="form-control">
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label fw-bold">Last Name</label>
+            <input id="editLastName" type="text" class="form-control">
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label fw-bold">Username</label>
+            <input id="editUsername" type="text" class="form-control">
+          </div>
+
+          <div class="mb-0">
+            <label class="form-label fw-bold">Email</label>
+            <input id="editEmail" type="email" class="form-control">
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button class="btn btn-light rounded-4" type="button" data-bs-dismiss="modal">Cancel</button>
+          <button id="btnSaveProfile" class="btn btn-primary rounded-4" type="button">Save Changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="changePasswordModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content rounded-4">
+        <div class="modal-header">
+          <h5 class="modal-title">Change Password</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+
+        <div class="modal-body">
+          <div class="mb-3">
+            <label class="form-label fw-bold">Current Password</label>
+            <input id="currentPassword" type="password" class="form-control">
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label fw-bold">New Password</label>
+            <input id="newPassword" type="password" class="form-control">
+          </div>
+
+          <div class="mb-0">
+            <label class="form-label fw-bold">Confirm New Password</label>
+            <input id="confirmPassword" type="password" class="form-control">
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button class="btn btn-light rounded-4" type="button" data-bs-dismiss="modal">Cancel</button>
+          <button id="btnSavePassword" class="btn btn-primary rounded-4" type="button">Change Password</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="logoutModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content rounded-4">
+        <div class="modal-header">
+          <h5 class="modal-title">Logout</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+
+        <div class="modal-body">
+          Are you sure you want to logout from your instructor account?
+        </div>
+
+        <div class="modal-footer">
+          <button class="btn btn-light rounded-4" type="button" data-bs-dismiss="modal">Cancel</button>
+          <button id="btnConfirmLogout" class="btn btn-danger rounded-4" type="button">Logout</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="/attendly/public/instructor/profile/profile.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

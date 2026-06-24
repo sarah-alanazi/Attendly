@@ -1,0 +1,582 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ATTENDLY | My Classes</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet"/>
+
+  <link rel="stylesheet" href="/attendly/public/assets/css/theme.css">
+  <link rel="stylesheet" href="/attendly/public/assets/css/base.css">
+  <link rel="stylesheet" href="/attendly/public/assets/css/components.css">
+  <link rel="stylesheet" href="/attendly/public/instructor/shared/instructor.css">
+
+  <style>
+    .ins-filter-card{
+      border-radius: 22px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,.82);
+      backdrop-filter: blur(10px);
+      box-shadow: var(--shadow-soft);
+      padding: 14px;
+    }
+
+    .ins-form-control,
+    .ins-form-select{
+      border-radius: 14px;
+      min-height: 46px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,.95);
+      box-shadow: none;
+    }
+
+    .ins-form-control:focus,
+    .ins-form-select:focus{
+      border-color: rgba(37,99,235,.35);
+      box-shadow: 0 0 0 0.2rem rgba(37,99,235,.10);
+    }
+
+    .ins-btn-primary{
+      border: none;
+      color: #fff;
+      border-radius: 14px;
+      min-height: 46px;
+      font-weight: 900;
+      background: linear-gradient(135deg, rgba(37,99,235,.95), rgba(6,182,212,.88));
+      box-shadow: 0 12px 24px rgba(37,99,235,.18);
+    }
+
+    .ins-btn-soft{
+      border-radius: 14px;
+      min-height: 46px;
+      font-weight: 900;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,.92);
+      color: var(--text);
+    }
+
+    .ins-link-btn{
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,.92);
+      color: var(--text);
+      border-radius: 12px;
+      padding: 8px 12px;
+      font-weight: 800;
+    }
+
+    .ins-link-btn:hover{
+      background: rgba(37,99,235,.06);
+    }
+
+    .ins-drawer{
+      width: 560px !important;
+      background: rgba(255,255,255,.96);
+      backdrop-filter: blur(10px);
+    }
+
+    .ins-drawer-header{
+      background: linear-gradient(135deg, rgba(37,99,235,.95), rgba(6,182,212,.85));
+      color: #fff;
+    }
+
+    .ins-info-grid{
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0,1fr));
+      gap: 12px;
+    }
+
+    .ins-info-box{
+      padding: 12px;
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,.86);
+    }
+
+    .ins-info-label{
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 4px;
+      font-weight: 800;
+    }
+
+    .ins-info-value{
+      font-weight: 900;
+      color: var(--text);
+      word-break: break-word;
+    }
+
+    .ins-section-title{
+      font-weight: 900;
+      font-size: 15px;
+      margin-bottom: 12px;
+    }
+
+    .ins-student-card{
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      background: rgba(255,255,255,.92);
+      padding: 12px;
+    }
+
+    .ins-student-name{
+      font-weight: 900;
+    }
+
+    .ins-student-meta{
+      color: var(--muted);
+      font-size: 12px;
+      margin-top: 3px;
+    }
+
+    .ins-modal-content{
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      overflow: hidden;
+      background: rgba(255,255,255,.98);
+      box-shadow: var(--shadow);
+    }
+
+    .ins-modal-header{
+      background: linear-gradient(135deg, rgba(37,99,235,.95), rgba(6,182,212,.85));
+      color: #fff;
+      border-bottom: none;
+    }
+
+    .ins-empty-inline{
+      padding: 20px 12px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 13px;
+      border: 1px dashed var(--border);
+      border-radius: 16px;
+      background: rgba(255,255,255,.75);
+    }
+
+    @media (max-width: 767.98px){
+      .ins-info-grid{
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body class="att-body">
+  <div class="ins-layout">
+
+    <aside class="ins-sidebar d-none d-lg-flex">
+      <div class="ins-side-header">
+        <div class="ins-brand">
+          <div class="ins-mark" aria-hidden="true">
+            <span class="m1"></span><span class="m2"></span><span class="m3"></span>
+          </div>
+          <div>
+            <div class="ins-brand-title">ATTENDLY</div>
+            <div class="ins-brand-sub">Instructor Panel</div>
+          </div>
+        </div>
+      </div>
+
+      <nav class="ins-menu">
+        <a class="ins-item" href="/attendly/public/instructor/dashboard/index.html">
+          <span class="ins-ic"><i class="fa-solid fa-grip"></i></span>
+          <span class="ins-txt">Dashboard</span>
+        </a>
+
+        <a class="ins-item active" href="/attendly/public/instructor/classes/index.html">
+          <span class="ins-ic"><i class="fa-solid fa-building-columns"></i></span>
+          <span class="ins-txt">My Classes</span>
+        </a>
+
+        <a class="ins-item" href="/attendly/public/instructor/attendance/index.html">
+          <span class="ins-ic"><i class="fa-solid fa-clipboard-check"></i></span>
+          <span class="ins-txt">Attendance</span>
+        </a>
+
+        <a class="ins-item" href="/attendly/public/instructor/reports/index.html">
+          <span class="ins-ic"><i class="fa-solid fa-chart-line"></i></span>
+          <span class="ins-txt">Reports</span>
+        </a>
+
+        <a class="ins-item" href="/attendly/public/instructor/alerts/index.html">
+          <span class="ins-ic"><i class="fa-solid fa-triangle-exclamation"></i></span>
+          <span class="ins-txt">Alerts</span>
+        </a>
+        <a class="ins-item " href="/attendly/public/instructor/appeals/index.html">
+            <span class="ins-ic"><i class="fa-solid fa-file-circle-question"></i></span>
+            <span class="ins-txt">Appeals</span>
+          </a>
+          <a class="ins-item " href="/attendly/public/instructor/notifications/index.html">
+            <span class="ins-ic"><i class="fa-solid fa-bell"></i></span>
+            <span class="ins-txt">Notifications</span>
+          </a>
+        <a class="ins-item" href="/attendly/public/instructor/profile/index.html">
+          <span class="ins-ic"><i class="fa-solid fa-user"></i></span>
+          <span class="ins-txt">Profile</span>
+        </a>
+
+        <div class="ins-sep"></div>
+
+        <button id="btnLogout" class="ins-item danger" type="button">
+          <span class="ins-ic"><i class="fa-solid fa-arrow-right-from-bracket"></i></span>
+          <span class="ins-txt">Logout</span>
+        </button>
+      </nav>
+
+      <div class="ins-side-footer">
+        <div class="ins-footline">
+          <span class="ins-footdot"></span>
+          <span>Instructor access active</span>
+        </div>
+        <div class="ins-mini">© 2026 ATTENDLY</div>
+      </div>
+    </aside>
+
+    <div class="offcanvas offcanvas-start ins-offcanvas" tabindex="-1" id="mobileSidebar">
+      <div class="offcanvas-header ins-offcanvas-header">
+        <div class="ins-brand">
+          <div class="ins-mark" aria-hidden="true">
+            <span class="m1"></span><span class="m2"></span><span class="m3"></span>
+          </div>
+          <div>
+            <div class="ins-brand-title">ATTENDLY</div>
+            <div class="ins-brand-sub">Instructor Panel</div>
+          </div>
+        </div>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+
+      <div class="offcanvas-body p-0">
+        <nav class="ins-menu p-3">
+          <a class="ins-item" href="/attendly/public/instructor/dashboard/index.html">
+            <span class="ins-ic"><i class="fa-solid fa-grip"></i></span>
+            <span class="ins-txt">Dashboard</span>
+          </a>
+
+          <a class="ins-item active" href="/attendly/public/instructor/classes/index.html">
+            <span class="ins-ic"><i class="fa-solid fa-building-columns"></i></span>
+            <span class="ins-txt">My Classes</span>
+          </a>
+
+          <a class="ins-item" href="/attendly/public/instructor/attendance/index.html">
+            <span class="ins-ic"><i class="fa-solid fa-clipboard-check"></i></span>
+            <span class="ins-txt">Attendance</span>
+          </a>
+
+          <a class="ins-item" href="/attendly/public/instructor/reports/index.html">
+            <span class="ins-ic"><i class="fa-solid fa-chart-line"></i></span>
+            <span class="ins-txt">Reports</span>
+          </a>
+
+          <a class="ins-item" href="/attendly/public/instructor/alerts/index.html">
+            <span class="ins-ic"><i class="fa-solid fa-triangle-exclamation"></i></span>
+            <span class="ins-txt">Alerts</span>
+          </a>
+          <a class="ins-item " href="/attendly/public/instructor/appeals/index.html">
+            <span class="ins-ic"><i class="fa-solid fa-file-circle-question"></i></span>
+            <span class="ins-txt">Appeals</span>
+          </a>
+          <a class="ins-item " href="/attendly/public/instructor/notifications/index.html">
+            <span class="ins-ic"><i class="fa-solid fa-bell"></i></span>
+            <span class="ins-txt">Notifications</span>
+          </a>
+          <a class="ins-item" href="/attendly/public/instructor/profile/index.html">
+            <span class="ins-ic"><i class="fa-solid fa-user"></i></span>
+            <span class="ins-txt">Profile</span>
+          </a>
+
+          <div class="ins-sep"></div>
+
+          <button id="btnLogoutM" class="ins-item danger w-100 text-start" type="button">
+            <span class="ins-ic"><i class="fa-solid fa-arrow-right-from-bracket"></i></span>
+            <span class="ins-txt">Logout</span>
+          </button>
+        </nav>
+      </div>
+    </div>
+
+    <div class="ins-main">
+      <header class="ins-topbar">
+        <div class="ins-top-left">
+          <button class="btn ins-burger d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileSidebar" aria-label="Open menu">
+            <i class="fa-solid fa-bars"></i>
+          </button>
+
+          <div>
+            <div class="ins-page-title">My Classes</div>
+            <div class="ins-page-sub">Manage assigned classes and enrolled students</div>
+          </div>
+        </div>
+
+        <div class="ins-top-right">
+          <button id="btnRefresh" class="btn ins-icon-btn" type="button" title="Refresh">
+            <i class="fa-solid fa-rotate"></i>
+          </button>
+
+          <div class="ins-userpill">
+            <span class="ins-userdot"></span>
+            <span id="instructorName">Instructor</span>
+          </div>
+        </div>
+      </header>
+
+      <main class="ins-content">
+        <section class="ins-filter-card mb-3">
+          <div class="row g-3 align-items-end">
+            <div class="col-12 col-lg-5">
+              <label class="form-label fw-bold">Search by course name</label>
+              <input type="text" id="searchInput" class="form-control ins-form-control" placeholder="Enter course name">
+            </div>
+
+            <div class="col-12 col-md-6 col-lg-3">
+              <label class="form-label fw-bold">Semester</label>
+              <select id="semesterFilter" class="form-select ins-form-select">
+                <option value="">All Semesters</option>
+              </select>
+            </div>
+
+            <div class="col-12 col-md-6 col-lg-2">
+              <label class="form-label fw-bold">Academic Year</label>
+              <select id="yearFilter" class="form-select ins-form-select">
+                <option value="">All Years</option>
+              </select>
+            </div>
+
+            <div class="col-12 col-lg-2">
+              <button id="btnClearFilters" class="btn ins-btn-soft w-100" type="button">Clear</button>
+            </div>
+          </div>
+        </section>
+
+        <section class="ins-card">
+          <div class="ins-card-head">
+            <div>
+              <div class="ins-card-title">Assigned Classes</div>
+              <div class="ins-card-sub">Classes linked to your assigned courses</div>
+            </div>
+            <span class="ins-badge" id="classesCountBadge">0 Classes</span>
+          </div>
+
+          <div class="ins-table">
+            <div class="table-responsive">
+              <table class="table align-middle mb-0">
+                <thead class="ins-th">
+                  <tr>
+                    <th>Course</th>
+                    <th>Section</th>
+                    <th>Schedule Day</th>
+                    <th>Time</th>
+                    <th>Room</th>
+                    <th>Academic Info</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody id="classesTableBody">
+                  <tr>
+                    <td colspan="7" class="ins-empty">Loading classes...</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <div class="offcanvas offcanvas-end ins-drawer" tabindex="-1" id="classDetailsDrawer">
+    <div class="offcanvas-header ins-drawer-header">
+      <div>
+        <h5 class="mb-1">Class Details</h5>
+        <div class="small opacity-75">Course information, class data, and enrollment</div>
+      </div>
+      <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+
+    <div class="offcanvas-body">
+      <div class="d-flex gap-2 mb-3">
+        <button id="btnOpenEditModal" type="button" class="btn ins-btn-primary flex-grow-1">Edit Class</button>
+        <button id="btnOpenAddStudentModal" type="button" class="btn ins-btn-soft flex-grow-1">Add Student</button>
+      </div>
+
+      <div class="ins-section-title">Course Information</div>
+      <div class="ins-info-grid mb-3">
+        <div class="ins-info-box">
+          <div class="ins-info-label">Course Name</div>
+          <div class="ins-info-value" id="detailCourseName">—</div>
+        </div>
+        <div class="ins-info-box">
+          <div class="ins-info-label">Course ID</div>
+          <div class="ins-info-value" id="detailCourseId">—</div>
+        </div>
+        <div class="ins-info-box">
+          <div class="ins-info-label">Semester</div>
+          <div class="ins-info-value" id="detailSemester">—</div>
+        </div>
+        <div class="ins-info-box">
+          <div class="ins-info-label">Academic Year</div>
+          <div class="ins-info-value" id="detailYear">—</div>
+        </div>
+      </div>
+
+      <div class="ins-section-title">Class Information</div>
+      <div class="ins-info-grid mb-3">
+        <div class="ins-info-box">
+          <div class="ins-info-label">Class ID</div>
+          <div class="ins-info-value" id="detailClassId">—</div>
+        </div>
+        <div class="ins-info-box">
+          <div class="ins-info-label">Section</div>
+          <div class="ins-info-value" id="detailSection">—</div>
+        </div>
+        <div class="ins-info-box">
+          <div class="ins-info-label">Schedule Day</div>
+          <div class="ins-info-value" id="detailScheduleDay">—</div>
+        </div>
+        <div class="ins-info-box">
+          <div class="ins-info-label">Room</div>
+          <div class="ins-info-value" id="detailRoom">—</div>
+        </div>
+        <div class="ins-info-box">
+          <div class="ins-info-label">Start Time</div>
+          <div class="ins-info-value" id="detailStartTime">—</div>
+        </div>
+        <div class="ins-info-box">
+          <div class="ins-info-label">End Time</div>
+          <div class="ins-info-value" id="detailEndTime">—</div>
+        </div>
+        <div class="ins-info-box">
+          <div class="ins-info-label">Assigned Date</div>
+          <div class="ins-info-value" id="detailAssignedDate">—</div>
+        </div>
+        <div class="ins-info-box">
+          <div class="ins-info-label">Enrolled Students</div>
+          <div class="ins-info-value" id="detailStudentsCount">0</div>
+        </div>
+      </div>
+
+      <div class="d-flex align-items-center justify-content-between mb-2">
+        <div class="ins-section-title mb-0">Enrolled Students</div>
+      </div>
+
+      <div id="studentsList" class="d-flex flex-column gap-2">
+        <div class="ins-empty-inline">Loading students...</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="addStudentModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content ins-modal-content">
+        <div class="modal-header ins-modal-header">
+          <h5 class="modal-title">Add Student</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+
+        <div class="modal-body">
+          <div class="mb-3">
+            <label class="form-label fw-bold">Select Student</label>
+            <select id="studentSelect" class="form-select ins-form-select">
+              <option value="">Select student</option>
+            </select>
+          </div>
+
+          <div class="mb-0">
+            <label class="form-label fw-bold">Enrollment Status</label>
+            <select id="studentEnrollStatus" class="form-select ins-form-select">
+              <option value="enrolled">Enrolled</option>
+              <option value="dropped">Dropped</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="modal-footer border-0 pt-0">
+          <button type="button" class="btn ins-btn-soft" data-bs-dismiss="modal">Cancel</button>
+          <button type="button" id="btnSaveStudent" class="btn ins-btn-primary">Add Student</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="editClassModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content ins-modal-content">
+        <div class="modal-header ins-modal-header">
+          <h5 class="modal-title">Edit Class</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+
+        <div class="modal-body">
+          <div class="row g-3">
+            <div class="col-12 col-md-6">
+              <label class="form-label fw-bold">Section</label>
+              <input type="text" id="editSection" class="form-control ins-form-control">
+            </div>
+
+            <div class="col-12 col-md-6">
+              <label class="form-label fw-bold">Room</label>
+              <input type="text" id="editRoom" class="form-control ins-form-control">
+            </div>
+
+            <div class="col-12">
+              <label class="form-label fw-bold">Schedule Day</label>
+              <select id="editScheduleDay" class="form-select ins-form-select">
+                <option value="Sunday">Sunday</option>
+                <option value="Monday">Monday</option>
+                <option value="Tuesday">Tuesday</option>
+                <option value="Wednesday">Wednesday</option>
+                <option value="Thursday">Thursday</option>
+                <option value="Friday">Friday</option>
+                <option value="Saturday">Saturday</option>
+              </select>
+            </div>
+
+            <div class="col-12 col-md-6">
+              <label class="form-label fw-bold">Start Time</label>
+              <input type="time" id="editStartTime" class="form-control ins-form-control">
+            </div>
+
+            <div class="col-12 col-md-6">
+              <label class="form-label fw-bold">End Time</label>
+              <input type="time" id="editEndTime" class="form-control ins-form-control">
+            </div>
+          </div>
+        </div>
+
+        <div class="modal-footer border-0 pt-0">
+          <button type="button" class="btn ins-btn-soft" data-bs-dismiss="modal">Cancel</button>
+          <button type="button" id="btnSaveClassEdit" class="btn ins-btn-primary">Save Changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="removeStudentModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content ins-modal-content">
+        <div class="modal-header ins-modal-header">
+          <h5 class="modal-title">Remove Student</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+
+        <div class="modal-body">
+          <p class="mb-2">Are you sure you want to remove this student from the class?</p>
+          <div class="ins-info-box">
+            <div class="ins-info-label">Student</div>
+            <div class="ins-info-value" id="removeStudentName">—</div>
+          </div>
+        </div>
+
+        <div class="modal-footer border-0 pt-0">
+          <button type="button" class="btn ins-btn-soft" data-bs-dismiss="modal">Cancel</button>
+          <button type="button" id="btnConfirmRemoveStudent" class="btn btn-danger rounded-4 px-4">Remove</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="/attendly/public/instructor/classes/classes.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

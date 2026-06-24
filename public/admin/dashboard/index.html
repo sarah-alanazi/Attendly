@@ -1,0 +1,363 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ATTENDLY | Admin Dashboard</title>
+
+  <!-- Bootstrap 5.3 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Font Awesome 6 -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet"/>
+
+  <!-- Global tokens -->
+  <link rel="stylesheet" href="/attendly/public/assets/css/theme.css">
+  <link rel="stylesheet" href="/attendly/public/assets/css/base.css">
+  <link rel="stylesheet" href="/attendly/public/assets/css/components.css">
+
+  <!-- Admin shell -->
+  <link rel="stylesheet" href="/attendly/public/admin/shared/admin.css">
+</head>
+
+<body class="att-body">
+  <div class="adm-layout">
+
+    <!-- Desktop Sidebar -->
+    <aside class="adm-sidebar d-none d-lg-flex">
+      <div class="adm-side-header">
+        <div class="adm-brand">
+          <div class="adm-mark" aria-hidden="true">
+            <span class="m1"></span><span class="m2"></span><span class="m3"></span>
+          </div>
+          <div>
+            <div class="adm-brand-title">ATTENDLY</div>
+            <div class="adm-brand-sub">Admin Panel</div>
+          </div>
+        </div>
+      </div>
+
+      <nav class="adm-menu">
+        <a class="adm-item active" href="/attendly/public/admin/dashboard/index.html">
+          <span class="adm-ic"><i class="fa-solid fa-grip"></i></span>
+          <span class="adm-txt">Dashboard</span>
+        </a>
+
+        <a class="adm-item" href="/attendly/public/admin/users/index.html">
+          <span class="adm-ic"><i class="fa-solid fa-users"></i></span>
+          <span class="adm-txt">Users</span>
+        </a>
+
+        <a class="adm-item" href="/attendly/public/admin/courses/index.html">
+          <span class="adm-ic"><i class="fa-solid fa-book"></i></span>
+          <span class="adm-txt">Courses</span>
+        </a>
+
+        <a class="adm-item" href="/attendly/public/admin/classes/index.html">
+          <span class="adm-ic"><i class="fa-solid fa-building-columns"></i></span>
+          <span class="adm-txt">Classes</span>
+        </a>
+
+        <a class="adm-item" href="/attendly/public/admin/reports/index.html">
+          <span class="adm-ic"><i class="fa-solid fa-chart-line"></i></span>
+          <span class="adm-txt">Reports</span>
+        </a>
+
+        <a class="adm-item" href="/attendly/public/admin/alerts/index.html">
+          <span class="adm-ic"><i class="fa-solid fa-triangle-exclamation"></i></span>
+          <span class="adm-txt">Alerts</span>
+        </a>
+
+        <div class="adm-sep"></div>
+
+        <button id="btnLogout" class="adm-item danger" type="button">
+          <span class="adm-ic"><i class="fa-solid fa-arrow-right-from-bracket"></i></span>
+          <span class="adm-txt">Logout</span>
+        </button>
+      </nav>
+
+      <div class="adm-side-footer">
+        <div class="adm-footline">
+          <span class="adm-footdot"></span>
+          <span>System secured</span>
+        </div>
+        <div class="adm-mini">© 2026 ATTENDLY</div>
+      </div>
+    </aside>
+
+    <!-- Mobile Sidebar (Offcanvas) -->
+    <div class="offcanvas offcanvas-start adm-offcanvas" tabindex="-1" id="mobileSidebar">
+      <div class="offcanvas-header adm-offcanvas-header">
+        <div class="adm-brand">
+          <div class="adm-mark" aria-hidden="true">
+            <span class="m1"></span><span class="m2"></span><span class="m3"></span>
+          </div>
+          <div>
+            <div class="adm-brand-title">ATTENDLY</div>
+            <div class="adm-brand-sub">Admin Panel</div>
+          </div>
+        </div>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+
+      <div class="offcanvas-body p-0">
+        <nav class="adm-menu p-3">
+          <a class="adm-item active" href="/attendly/public/admin/dashboard/index.html">
+            <span class="adm-ic"><i class="fa-solid fa-grid-2"></i></span>
+            <span class="adm-txt">Dashboard</span>
+          </a>
+
+          <a class="adm-item" href="/attendly/public/admin/users/index.html">
+            <span class="adm-ic"><i class="fa-solid fa-users"></i></span>
+            <span class="adm-txt">Users</span>
+          </a>
+
+          <a class="adm-item" href="/attendly/public/admin/courses/index.html">
+            <span class="adm-ic"><i class="fa-solid fa-book"></i></span>
+            <span class="adm-txt">Courses</span>
+          </a>
+
+          <a class="adm-item" href="/attendly/public/admin/classes/index.html">
+            <span class="adm-ic"><i class="fa-solid fa-building-columns"></i></span>
+            <span class="adm-txt">Classes</span>
+          </a>
+
+          <a class="adm-item" href="/attendly/public/admin/reports/index.html">
+            <span class="adm-ic"><i class="fa-solid fa-chart-line"></i></span>
+            <span class="adm-txt">Reports</span>
+          </a>
+
+          <a class="adm-item" href="/attendly/public/admin/alerts/index.html">
+            <span class="adm-ic"><i class="fa-solid fa-triangle-exclamation"></i></span>
+            <span class="adm-txt">Alerts</span>
+          </a>
+
+          <div class="adm-sep"></div>
+
+          <button id="btnLogoutM" class="adm-item danger w-100 text-start" type="button">
+            <span class="adm-ic"><i class="fa-solid fa-arrow-right-from-bracket"></i></span>
+            <span class="adm-txt">Logout</span>
+          </button>
+        </nav>
+      </div>
+    </div>
+
+    <!-- Main -->
+    <div class="adm-main">
+      <!-- Topbar (GRADIENT like login) -->
+      <header class="adm-topbar">
+        <div class="adm-top-left">
+          <button class="btn adm-burger d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileSidebar" aria-label="Open menu">
+            <i class="fa-solid fa-bars"></i>
+          </button>
+
+          <div>
+            <div class="adm-page-title">Dashboard</div>
+            <div class="adm-page-sub">Overview and system status</div>
+          </div>
+        </div>
+
+        <div class="adm-top-right">
+          <button id="btnRefresh" class="btn adm-icon-btn" type="button" title="Refresh">
+            <i class="fa-solid fa-rotate"></i>
+          </button>
+
+          <div class="adm-userpill">
+            <span class="adm-userdot"></span>
+            <span id="adminName">Admin</span>
+          </div>
+        </div>
+      </header>
+
+      <main class="adm-content">
+
+        <!-- KPI -->
+        <section class="row g-3">
+          <div class="col-12 col-md-6 col-xl-3">
+            <div class="adm-kpi">
+              <div class="adm-kpi-head">
+                <div class="adm-kpi-ico"><i class="fa-solid fa-users"></i></div>
+                <div class="adm-kpi-title">Total Users</div>
+              </div>
+              <div class="adm-kpi-val" id="kpiUsers">—</div>
+              <div class="adm-kpi-sub">All accounts in the system</div>
+            </div>
+          </div>
+
+          <div class="col-12 col-md-6 col-xl-3">
+            <div class="adm-kpi">
+              <div class="adm-kpi-head">
+                <div class="adm-kpi-ico"><i class="fa-solid fa-book"></i></div>
+                <div class="adm-kpi-title">Courses</div>
+              </div>
+              <div class="adm-kpi-val" id="kpiCourses">—</div>
+              <div class="adm-kpi-sub">Courses available</div>
+            </div>
+          </div>
+
+          <div class="col-12 col-md-6 col-xl-3">
+            <div class="adm-kpi">
+              <div class="adm-kpi-head">
+                <div class="adm-kpi-ico"><i class="fa-solid fa-building-columns"></i></div>
+                <div class="adm-kpi-title">Classes</div>
+              </div>
+              <div class="adm-kpi-val" id="kpiClasses">—</div>
+              <div class="adm-kpi-sub">Sections created</div>
+            </div>
+          </div>
+
+          <div class="col-12 col-md-6 col-xl-3">
+            <div class="adm-kpi">
+              <div class="adm-kpi-head">
+                <div class="adm-kpi-ico"><i class="fa-solid fa-triangle-exclamation"></i></div>
+                <div class="adm-kpi-title">Open Alerts</div>
+              </div>
+              <div class="adm-kpi-val" id="kpiAlerts">—</div>
+              <div class="adm-kpi-sub">Unresolved alerts</div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Panels -->
+        <section class="row g-3 mt-1">
+            <div class="col-12 col-xl-7">
+                <div class="adm-card">
+                  <div class="adm-card-head">
+                    <div>
+                      <div class="adm-card-title">System Overview</div>
+                      <div class="adm-card-sub">Platform information and guidance</div>
+                    </div>
+                    <span class="adm-badge">Admin</span>
+                  </div>
+              
+                  <div class="p-3">
+                    <div class="row g-3">
+              
+                      <div class="col-12 col-md-6">
+                        <div class="adm-overbox">
+                          <div class="adm-over-ico">
+                            <i class="fa-solid fa-circle-info"></i>
+                          </div>
+                          <div>
+                            <div class="adm-over-title">Platform Status</div>
+                            <div class="adm-over-text">
+                              The ATTENDLY system is running normally and ready for management operations.
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+              
+                      <div class="col-12 col-md-6">
+                        <div class="adm-overbox">
+                          <div class="adm-over-ico">
+                            <i class="fa-solid fa-shield-halved"></i>
+                          </div>
+                          <div>
+                            <div class="adm-over-title">Security</div>
+                            <div class="adm-over-text">
+                              Authentication and session management are active and secure.
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+              
+                      <div class="col-12 col-md-6">
+                        <div class="adm-overbox">
+                          <div class="adm-over-ico">
+                            <i class="fa-solid fa-user-gear"></i>
+                          </div>
+                          <div>
+                            <div class="adm-over-title">User Management</div>
+                            <div class="adm-over-text">
+                              Create, update, and control access for instructors and students.
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+              
+                      <div class="col-12 col-md-6">
+                        <div class="adm-overbox">
+                          <div class="adm-over-ico">
+                            <i class="fa-solid fa-gear"></i>
+                          </div>
+                          <div>
+                            <div class="adm-over-title">Administration</div>
+                            <div class="adm-over-text">
+                              Manage courses, classes, schedules, and attendance settings.
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+              
+                    </div>
+              
+                    <div class="adm-sysinfo mt-3">
+                      <div><strong>Version:</strong> 1.0.0</div>
+                      <div><strong>Environment:</strong> Production</div>
+                      <div><strong>Last Login:</strong> <span id="lastLoginInfo">Current Session</span></div>
+                    </div>
+              
+                  </div>
+                </div>
+              </div>
+              
+
+          <div class="col-12 col-xl-5">
+            <div class="adm-card">
+              <div class="adm-card-head">
+                <div>
+                  <div class="adm-card-title">Quick Actions</div>
+                  <div class="adm-card-sub">Shortcuts to manage data</div>
+                </div>
+              </div>
+
+              <div class="adm-actions">
+                <a class="adm-action" href="/attendly/public/admin/users/index.html">
+                  <div class="adm-action-ico"><i class="fa-solid fa-user-plus"></i></div>
+                  <div>
+                    <div class="adm-action-title">Manage Users</div>
+                    <div class="adm-action-sub">Create and update accounts</div>
+                  </div>
+                  <div class="adm-action-go"><i class="fa-solid fa-arrow-right"></i></div>
+                </a>
+
+                <a class="adm-action" href="/attendly/public/admin/courses/index.html">
+                  <div class="adm-action-ico"><i class="fa-solid fa-circle-plus"></i></div>
+                  <div>
+                    <div class="adm-action-title">Add Courses</div>
+                    <div class="adm-action-sub">Create courses quickly</div>
+                  </div>
+                  <div class="adm-action-go"><i class="fa-solid fa-arrow-right"></i></div>
+                </a>
+
+                <a class="adm-action" href="/attendly/public/admin/classes/index.html">
+                  <div class="adm-action-ico"><i class="fa-solid fa-calendar-plus"></i></div>
+                  <div>
+                    <div class="adm-action-title">Add Classes</div>
+                    <div class="adm-action-sub">Sections and schedules</div>
+                  </div>
+                  <div class="adm-action-go"><i class="fa-solid fa-arrow-right"></i></div>
+                </a>
+
+                <a class="adm-action" href="/attendly/public/admin/alerts/index.html">
+                  <div class="adm-action-ico"><i class="fa-solid fa-shield-halved"></i></div>
+                  <div>
+                    <div class="adm-action-title">Review Alerts</div>
+                    <div class="adm-action-sub">Attendance issues and checks</div>
+                  </div>
+                  <div class="adm-action-go"><i class="fa-solid fa-arrow-right"></i></div>
+                </a>
+              </div>
+
+            </div>
+          </div>
+        </section>
+
+      </main>
+    </div>
+  </div>
+
+  <script type="module" src="/attendly/public/admin/shared/admin.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,503 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ATTENDLY | Attendance</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="/attendly/public/assets/css/theme.css">
+  <link rel="stylesheet" href="/attendly/public/assets/css/base.css">
+  <link rel="stylesheet" href="/attendly/public/assets/css/components.css">
+  <link rel="stylesheet" href="/attendly/public/instructor/shared/instructor.css">
+</head>
+
+<body class="att-body">
+  <div class="ins-layout">
+
+    <aside class="ins-sidebar d-none d-lg-flex">
+      <div class="ins-side-header">
+        <div class="ins-brand">
+          <div class="ins-mark" aria-hidden="true">
+            <span class="m1"></span><span class="m2"></span><span class="m3"></span>
+          </div>
+          <div>
+            <div class="ins-brand-title">ATTENDLY</div>
+            <div class="ins-brand-sub">Instructor Panel</div>
+          </div>
+        </div>
+      </div>
+
+      <nav class="ins-menu">
+        <a class="ins-item" href="/attendly/public/instructor/dashboard/index.html">
+          <span class="ins-ic"><i class="fa-solid fa-grip"></i></span>
+          <span class="ins-txt">Dashboard</span>
+        </a>
+
+        <a class="ins-item" href="/attendly/public/instructor/classes/index.html">
+          <span class="ins-ic"><i class="fa-solid fa-building-columns"></i></span>
+          <span class="ins-txt">My Classes</span>
+        </a>
+
+        <a class="ins-item active" href="/attendly/public/instructor/attendance/index.html">
+          <span class="ins-ic"><i class="fa-solid fa-clipboard-check"></i></span>
+          <span class="ins-txt">Attendance</span>
+        </a>
+
+        <a class="ins-item" href="/attendly/public/instructor/reports/index.html">
+          <span class="ins-ic"><i class="fa-solid fa-chart-line"></i></span>
+          <span class="ins-txt">Reports</span>
+        </a>
+
+        <a class="ins-item" href="/attendly/public/instructor/alerts/index.html">
+          <span class="ins-ic"><i class="fa-solid fa-triangle-exclamation"></i></span>
+          <span class="ins-txt">Alerts</span>
+        </a>
+        <a class="ins-item " href="/attendly/public/instructor/appeals/index.html">
+            <span class="ins-ic"><i class="fa-solid fa-file-circle-question"></i></span>
+            <span class="ins-txt">Appeals</span>
+          </a>
+          <a class="ins-item " href="/attendly/public/instructor/notifications/index.html">
+            <span class="ins-ic"><i class="fa-solid fa-bell"></i></span>
+            <span class="ins-txt">Notifications</span>
+          </a>
+
+        <a class="ins-item" href="/attendly/public/instructor/profile/index.html">
+          <span class="ins-ic"><i class="fa-solid fa-user"></i></span>
+          <span class="ins-txt">Profile</span>
+        </a>
+
+        <div class="ins-sep"></div>
+
+        <button id="btnLogout" class="ins-item danger" type="button">
+          <span class="ins-ic"><i class="fa-solid fa-arrow-right-from-bracket"></i></span>
+          <span class="ins-txt">Logout</span>
+        </button>
+      </nav>
+
+      <div class="ins-side-footer">
+        <div class="ins-footline">
+          <span class="ins-footdot"></span>
+          <span>Instructor access active</span>
+        </div>
+        <div class="ins-mini">© 2026 ATTENDLY</div>
+      </div>
+    </aside>
+
+    <div class="offcanvas offcanvas-start ins-offcanvas" tabindex="-1" id="mobileSidebar">
+      <div class="offcanvas-header ins-offcanvas-header">
+        <div class="ins-brand">
+          <div class="ins-mark" aria-hidden="true">
+            <span class="m1"></span><span class="m2"></span><span class="m3"></span>
+          </div>
+          <div>
+            <div class="ins-brand-title">ATTENDLY</div>
+            <div class="ins-brand-sub">Instructor Panel</div>
+          </div>
+        </div>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+
+      <div class="offcanvas-body p-0">
+        <nav class="ins-menu p-3">
+          <a class="ins-item" href="/attendly/public/instructor/dashboard/index.html">
+            <span class="ins-ic"><i class="fa-solid fa-grip"></i></span>
+            <span class="ins-txt">Dashboard</span>
+          </a>
+
+          <a class="ins-item" href="/attendly/public/instructor/classes/index.html">
+            <span class="ins-ic"><i class="fa-solid fa-building-columns"></i></span>
+            <span class="ins-txt">My Classes</span>
+          </a>
+
+          <a class="ins-item active" href="/attendly/public/instructor/attendance/index.html">
+            <span class="ins-ic"><i class="fa-solid fa-clipboard-check"></i></span>
+            <span class="ins-txt">Attendance</span>
+          </a>
+
+          <a class="ins-item" href="/attendly/public/instructor/reports/index.html">
+            <span class="ins-ic"><i class="fa-solid fa-chart-line"></i></span>
+            <span class="ins-txt">Reports</span>
+          </a>
+
+          <a class="ins-item" href="/attendly/public/instructor/alerts/index.html">
+            <span class="ins-ic"><i class="fa-solid fa-triangle-exclamation"></i></span>
+            <span class="ins-txt">Alerts</span>
+          </a>
+          <a class="ins-item " href="/attendly/public/instructor/appeals/index.html">
+            <span class="ins-ic"><i class="fa-solid fa-file-circle-question"></i></span>
+            <span class="ins-txt">Appeals</span>
+          </a>
+          <a class="ins-item " href="/attendly/public/instructor/notifications/index.html">
+            <span class="ins-ic"><i class="fa-solid fa-bell"></i></span>
+            <span class="ins-txt">Notifications</span>
+          </a>
+          <a class="ins-item" href="/attendly/public/instructor/profile/index.html">
+            <span class="ins-ic"><i class="fa-solid fa-user"></i></span>
+            <span class="ins-txt">Profile</span>
+          </a>
+
+          <div class="ins-sep"></div>
+
+          <button id="btnLogoutM" class="ins-item danger w-100 text-start" type="button">
+            <span class="ins-ic"><i class="fa-solid fa-arrow-right-from-bracket"></i></span>
+            <span class="ins-txt">Logout</span>
+          </button>
+        </nav>
+      </div>
+    </div>
+
+    <div class="ins-main">
+      <header class="ins-topbar">
+        <div class="ins-top-left">
+          <button class="btn ins-burger d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileSidebar" aria-label="Open menu">
+            <i class="fa-solid fa-bars"></i>
+          </button>
+
+          <div>
+            <div class="ins-page-title">Attendance</div>
+            <div class="ins-page-sub">Start sessions, manage records, and review history</div>
+          </div>
+        </div>
+
+        <div class="ins-top-right">
+          <button id="btnRefresh" class="btn ins-icon-btn" type="button" title="Refresh">
+            <i class="fa-solid fa-rotate"></i>
+          </button>
+
+          <div class="ins-userpill">
+            <span class="ins-userdot"></span>
+            <span id="instructorName">Instructor</span>
+          </div>
+        </div>
+      </header>
+
+      <main class="ins-content">
+        <section class="ins-card mb-3">
+          <div class="ins-card-head">
+            <div>
+              <div class="ins-card-title">Class Selector / Session Starter</div>
+              <div class="ins-card-sub">Choose a class, then start or manage attendance</div>
+            </div>
+            <span class="ins-badge">Attendance</span>
+          </div>
+
+          <div class="p-3">
+            <div class="row g-3 align-items-end">
+              <div class="col-12 col-lg-8">
+                <label class="form-label fw-bold">Select Class</label>
+                <select id="classSelect" class="form-select">
+                  <option value="">Select class</option>
+                </select>
+              </div>
+
+              <div class="col-12 col-lg-4">
+                <button id="btnOpenStartSessionModal" class="btn btn-primary w-100 rounded-4" type="button">
+                  <i class="fa-solid fa-play me-2"></i>Start Session
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="row g-3 mb-3">
+          <div class="col-12 col-xl-5">
+            <div class="ins-card h-100">
+              <div class="ins-card-head">
+                <div>
+                  <div class="ins-card-title">Active Session</div>
+                  <div class="ins-card-sub">Current session status for selected class</div>
+                </div>
+                <span class="ins-badge" id="activeSessionBadge">No Session</span>
+              </div>
+
+              <div class="p-3" id="activeSessionCard">
+                <div class="ins-empty">Select a class to load attendance data.</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12 col-xl-7">
+            <div class="ins-card h-100">
+              <div class="ins-card-head">
+                <div>
+                  <div class="ins-card-title">Session History</div>
+                  <div class="ins-card-sub">Recent sessions for the selected class</div>
+                </div>
+                <span class="ins-badge" id="historyCountBadge">0 Sessions</span>
+              </div>
+
+              <div class="ins-table">
+                <div class="table-responsive">
+                  <table class="table align-middle mb-0">
+                    <thead class="ins-th">
+                      <tr>
+                        <th>Date</th>
+                        <th>Time</th>
+                        <th>Status</th>
+                        <th>Present</th>
+                        <th>Absent</th>
+                        <th>Late</th>
+                        <th>Action</th>
+                      </tr>
+                    </thead>
+                    <tbody id="historyTableBody">
+                      <tr>
+                        <td colspan="7" class="ins-empty">Select a class to view session history.</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="ins-card">
+          <div class="ins-card-head">
+            <div>
+              <div class="ins-card-title">Attendance Records</div>
+              <div class="ins-card-sub">Students records for the selected session</div>
+            </div>
+            <span class="ins-badge" id="recordsSessionBadge">No Session Selected</span>
+          </div>
+
+          <div class="ins-table">
+            <div class="table-responsive">
+              <table class="table align-middle mb-0">
+                <thead class="ins-th">
+                  <tr>
+                    <th>Student Name</th>
+                    <th>Status</th>
+                    <th>Scan Time</th>
+                    <th>Reliability</th>
+                    <th>Within Campus</th>
+                    <th>Notes</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody id="recordsTableBody">
+                  <tr>
+                    <td colspan="7" class="ins-empty">Select a session to view records.</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <div class="modal fade" id="startSessionModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content rounded-4">
+        <div class="modal-header">
+          <h5 class="modal-title">Start Attendance Session</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+
+        <div class="modal-body">
+          <div class="mb-3">
+            <label class="form-label fw-bold">Class</label>
+            <input id="startSessionClassName" type="text" class="form-control" readonly>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label fw-bold">Session Date</label>
+            <input id="sessionDate" type="date" class="form-control">
+          </div>
+
+          <div class="row g-3 mb-3">
+            <div class="col-12 col-md-6">
+              <label class="form-label fw-bold">Start Time</label>
+              <input id="sessionStartTime" type="time" class="form-control">
+            </div>
+
+            <div class="col-12 col-md-6">
+              <label class="form-label fw-bold">End Time</label>
+              <input id="sessionEndTime" type="time" class="form-control">
+            </div>
+          </div>
+
+          <div class="row g-3">
+            <div class="col-12 col-md-6">
+              <label class="form-label fw-bold">Session Latitude</label>
+              <input id="sessionLat" type="number" step="0.0000001" class="form-control" placeholder="24.7136000">
+            </div>
+
+            <div class="col-12 col-md-6">
+              <label class="form-label fw-bold">Session Longitude</label>
+              <input id="sessionLng" type="number" step="0.0000001" class="form-control" placeholder="46.6753000">
+            </div>
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button class="btn btn-light rounded-4" type="button" data-bs-dismiss="modal">Cancel</button>
+          <button id="btnStartSession" class="btn btn-primary rounded-4" type="button">Start Session</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="qrPreviewModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content rounded-4">
+        <div class="modal-header">
+          <h5 class="modal-title">QR Preview</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+
+        <div class="modal-body text-center">
+          <div id="qrContainer" class="d-flex justify-content-center mb-3"></div>
+          <div class="fw-bold mb-2" id="qrTokenText">—</div>
+          <div class="text-muted small" id="qrExpiryText">—</div>
+        </div>
+
+        <div class="modal-footer">
+            <button id="btnDownloadQr" class="btn btn-primary rounded-4" type="button">
+                <i class="fa-solid fa-download me-2"></i>Download QR
+              </button>
+          <button class="btn btn-light rounded-4" type="button" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="editRecordModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content rounded-4">
+        <div class="modal-header">
+          <h5 class="modal-title">Edit Attendance Record</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+
+        <div class="modal-body">
+          <input type="hidden" id="editRecordId">
+
+          <div class="mb-3">
+            <label class="form-label fw-bold">Student</label>
+            <input id="editStudentName" type="text" class="form-control" readonly>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label fw-bold">Status</label>
+            <select id="editStatus" class="form-select">
+              <option value="present">Present</option>
+              <option value="absent">Absent</option>
+              <option value="late">Late</option>
+            </select>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label fw-bold">Notes</label>
+            <textarea id="editNotes" class="form-control" rows="3" placeholder="Enter notes"></textarea>
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button class="btn btn-light rounded-4" type="button" data-bs-dismiss="modal">Cancel</button>
+          <button id="btnSaveRecord" class="btn btn-primary rounded-4" type="button">Save Changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="closeSessionModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content rounded-4">
+        <div class="modal-header">
+          <h5 class="modal-title">Close Session</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+
+        <div class="modal-body">
+          Are you sure you want to close this attendance session?
+        </div>
+
+        <div class="modal-footer">
+          <button class="btn btn-light rounded-4" type="button" data-bs-dismiss="modal">Cancel</button>
+          <button id="btnConfirmCloseSession" class="btn btn-danger rounded-4" type="button">Close Session</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="offcanvas offcanvas-end ins-offcanvas" tabindex="-1" id="sessionDetailsDrawer">
+    <div class="offcanvas-header ins-offcanvas-header">
+      <div>
+        <div class="fw-bold">Session Details</div>
+        <div class="small">Attendance session information</div>
+      </div>
+      <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+
+    <div class="offcanvas-body">
+      <div class="mb-3">
+        <div class="fw-bold mb-1">Course</div>
+        <div id="detailCourseName">—</div>
+      </div>
+
+      <div class="mb-3">
+        <div class="fw-bold mb-1">Section</div>
+        <div id="detailSection">—</div>
+      </div>
+
+      <div class="mb-3">
+        <div class="fw-bold mb-1">Session Date</div>
+        <div id="detailSessionDate">—</div>
+      </div>
+
+      <div class="mb-3">
+        <div class="fw-bold mb-1">Time</div>
+        <div id="detailSessionTime">—</div>
+      </div>
+
+      <div class="mb-3">
+        <div class="fw-bold mb-1">Status</div>
+        <div id="detailStatus">—</div>
+      </div>
+
+      <div class="mb-3">
+        <div class="fw-bold mb-1">QR Expiry</div>
+        <div id="detailQrExpiry">—</div>
+      </div>
+
+      <div class="mb-3">
+        <div class="fw-bold mb-1">Session Latitude</div>
+        <div id="detailSessionLat">—</div>
+      </div>
+
+      <div class="mb-3">
+        <div class="fw-bold mb-1">Session Longitude</div>
+        <div id="detailSessionLng">—</div>
+      </div>
+
+      <hr>
+
+      <div class="mb-2 fw-bold">Attendance Summary</div>
+
+      <div class="mb-3">
+        <div class="fw-bold mb-1">Present</div>
+        <div id="detailPresentCount">0</div>
+      </div>
+
+      <div class="mb-3">
+        <div class="fw-bold mb-1">Absent</div>
+        <div id="detailAbsentCount">0</div>
+      </div>
+
+      <div class="mb-3">
+        <div class="fw-bold mb-1">Late</div>
+        <div id="detailLateCount">0</div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
+  <script type="module" src="/attendly/public/instructor/attendance/attendance.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

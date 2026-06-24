@@ -1,0 +1,29 @@
+:root{
+    /* Brand */
+    --primary: #2563eb;
+    --primary-dark: #1e40af;
+    --accent: #06b6d4;
+  
+    /* Status */
+    --success: #22c55e;
+    --warning: #f59e0b;
+    --danger:  #ef4444;
+  
+    /* Neutrals */
+    --bg: #f6f8ff;
+    --card: #ffffff;
+    --text: #0f172a;
+    --muted: #64748b;
+    --border: rgba(15,23,42,.10);
+  
+    /* UI */
+    --radius: 16px;
+    --radius-sm: 12px;
+    --shadow: 0 10px 30px rgba(2, 6, 23, 0.08);
+    --shadow-soft: 0 8px 20px rgba(2, 6, 23, 0.06);
+    --ring: 0 0 0 3px rgba(6,182,212,.20);
+  
+    /* Spacing */
+    --container: 1100px;
+  }
+  

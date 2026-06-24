@@ -1,0 +1,366 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ATTENDLY | Appeals</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="/attendly/public/assets/css/theme.css">
+  <link rel="stylesheet" href="/attendly/public/assets/css/base.css">
+  <link rel="stylesheet" href="/attendly/public/assets/css/components.css">
+  <link rel="stylesheet" href="/attendly/public/instructor/shared/instructor.css">
+</head>
+
+<body class="att-body">
+  <div class="ins-layout">
+
+    <aside class="ins-sidebar d-none d-lg-flex">
+      <div class="ins-side-header">
+        <div class="ins-brand">
+          <div class="ins-mark" aria-hidden="true">
+            <span class="m1"></span><span class="m2"></span><span class="m3"></span>
+          </div>
+          <div>
+            <div class="ins-brand-title">ATTENDLY</div>
+            <div class="ins-brand-sub">Instructor Panel</div>
+          </div>
+        </div>
+      </div>
+
+      <nav class="ins-menu">
+        <a class="ins-item" href="/attendly/public/instructor/dashboard/index.html">
+          <span class="ins-ic"><i class="fa-solid fa-grip"></i></span>
+          <span class="ins-txt">Dashboard</span>
+        </a>
+
+        <a class="ins-item" href="/attendly/public/instructor/classes/index.html">
+          <span class="ins-ic"><i class="fa-solid fa-building-columns"></i></span>
+          <span class="ins-txt">My Classes</span>
+        </a>
+
+        <a class="ins-item" href="/attendly/public/instructor/attendance/index.html">
+          <span class="ins-ic"><i class="fa-solid fa-clipboard-check"></i></span>
+          <span class="ins-txt">Attendance</span>
+        </a>
+
+        <a class="ins-item" href="/attendly/public/instructor/reports/index.html">
+          <span class="ins-ic"><i class="fa-solid fa-chart-line"></i></span>
+          <span class="ins-txt">Reports</span>
+        </a>
+
+        <a class="ins-item" href="/attendly/public/instructor/alerts/index.html">
+          <span class="ins-ic"><i class="fa-solid fa-triangle-exclamation"></i></span>
+          <span class="ins-txt">Alerts</span>
+        </a>
+
+        <a class="ins-item active" href="/attendly/public/instructor/appeals/index.html">
+          <span class="ins-ic"><i class="fa-solid fa-file-circle-question"></i></span>
+          <span class="ins-txt">Appeals</span>
+        </a>
+
+          <a class="ins-item " href="/attendly/public/instructor/notifications/index.html">
+            <span class="ins-ic"><i class="fa-solid fa-bell"></i></span>
+            <span class="ins-txt">Notifications</span>
+          </a>
+
+        <a class="ins-item" href="/attendly/public/instructor/profile/index.html">
+          <span class="ins-ic"><i class="fa-solid fa-user"></i></span>
+          <span class="ins-txt">Profile</span>
+        </a>
+
+        <div class="ins-sep"></div>
+
+        <button id="btnLogout" class="ins-item danger" type="button">
+          <span class="ins-ic"><i class="fa-solid fa-arrow-right-from-bracket"></i></span>
+          <span class="ins-txt">Logout</span>
+        </button>
+      </nav>
+
+      <div class="ins-side-footer">
+        <div class="ins-footline">
+          <span class="ins-footdot"></span>
+          <span>Instructor access active</span>
+        </div>
+        <div class="ins-mini">© 2026 ATTENDLY</div>
+      </div>
+    </aside>
+
+    <div class="offcanvas offcanvas-start ins-offcanvas" tabindex="-1" id="mobileSidebar">
+      <div class="offcanvas-header ins-offcanvas-header">
+        <div class="ins-brand">
+          <div class="ins-mark" aria-hidden="true">
+            <span class="m1"></span><span class="m2"></span><span class="m3"></span>
+          </div>
+          <div>
+            <div class="ins-brand-title">ATTENDLY</div>
+            <div class="ins-brand-sub">Instructor Panel</div>
+          </div>
+        </div>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+
+      <div class="offcanvas-body p-0">
+        <nav class="ins-menu p-3">
+          <a class="ins-item" href="/attendly/public/instructor/dashboard/index.html">
+            <span class="ins-ic"><i class="fa-solid fa-grip"></i></span>
+            <span class="ins-txt">Dashboard</span>
+          </a>
+
+          <a class="ins-item" href="/attendly/public/instructor/classes/index.html">
+            <span class="ins-ic"><i class="fa-solid fa-building-columns"></i></span>
+            <span class="ins-txt">My Classes</span>
+          </a>
+
+          <a class="ins-item" href="/attendly/public/instructor/attendance/index.html">
+            <span class="ins-ic"><i class="fa-solid fa-clipboard-check"></i></span>
+            <span class="ins-txt">Attendance</span>
+          </a>
+
+          <a class="ins-item" href="/attendly/public/instructor/reports/index.html">
+            <span class="ins-ic"><i class="fa-solid fa-chart-line"></i></span>
+            <span class="ins-txt">Reports</span>
+          </a>
+
+          <a class="ins-item" href="/attendly/public/instructor/alerts/index.html">
+            <span class="ins-ic"><i class="fa-solid fa-triangle-exclamation"></i></span>
+            <span class="ins-txt">Alerts</span>
+          </a>
+
+          <a class="ins-item active" href="/attendly/public/instructor/appeals/index.html">
+            <span class="ins-ic"><i class="fa-solid fa-file-circle-question"></i></span>
+            <span class="ins-txt">Appeals</span>
+          </a>
+          <a class="ins-item " href="/attendly/public/instructor/notifications/index.html">
+            <span class="ins-ic"><i class="fa-solid fa-bell"></i></span>
+            <span class="ins-txt">Notifications</span>
+          </a>
+          <a class="ins-item" href="/attendly/public/instructor/profile/index.html">
+            <span class="ins-ic"><i class="fa-solid fa-user"></i></span>
+            <span class="ins-txt">Profile</span>
+          </a>
+
+          <div class="ins-sep"></div>
+
+          <button id="btnLogoutM" class="ins-item danger w-100 text-start" type="button">
+            <span class="ins-ic"><i class="fa-solid fa-arrow-right-from-bracket"></i></span>
+            <span class="ins-txt">Logout</span>
+          </button>
+        </nav>
+      </div>
+    </div>
+
+    <div class="ins-main">
+      <header class="ins-topbar">
+        <div class="ins-top-left">
+          <button class="btn ins-burger d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileSidebar" aria-label="Open menu">
+            <i class="fa-solid fa-bars"></i>
+          </button>
+
+          <div>
+            <div class="ins-page-title">Appeals</div>
+            <div class="ins-page-sub">Review student attendance appeals</div>
+          </div>
+        </div>
+
+        <div class="ins-top-right">
+          <button id="btnRefresh" class="btn ins-icon-btn" type="button" title="Refresh">
+            <i class="fa-solid fa-rotate"></i>
+          </button>
+
+          <div class="ins-userpill">
+            <span class="ins-userdot"></span>
+            <span id="instructorName">Instructor</span>
+          </div>
+        </div>
+      </header>
+
+      <main class="ins-content">
+        <section class="ins-card mb-3">
+          <div class="ins-card-head">
+            <div>
+              <div class="ins-card-title">Appeal Filters</div>
+              <div class="ins-card-sub">Filter appeals by status or class</div>
+            </div>
+            <span class="ins-badge">Appeal Review</span>
+          </div>
+
+          <div class="p-3">
+            <div class="row g-3">
+              <div class="col-12 col-lg-6">
+                <label class="form-label fw-bold">Status</label>
+                <select id="statusFilter" class="form-select">
+                  <option value="">All Statuses</option>
+                  <option value="pending">Pending</option>
+                  <option value="approved">Approved</option>
+                  <option value="rejected">Rejected</option>
+                </select>
+              </div>
+
+              <div class="col-12 col-lg-6">
+                <label class="form-label fw-bold">Class</label>
+                <select id="classFilter" class="form-select">
+                  <option value="">All Classes</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="d-flex flex-wrap gap-2 mt-3">
+              <button id="btnApplyFilters" class="btn btn-primary rounded-4" type="button">
+                <i class="fa-solid fa-filter me-2"></i>Apply Filters
+              </button>
+
+              <button id="btnClearFilters" class="btn btn-light rounded-4" type="button">
+                Clear
+              </button>
+            </div>
+          </div>
+        </section>
+
+        <section class="ins-card">
+          <div class="ins-card-head">
+            <div>
+              <div class="ins-card-title">Appeals Table</div>
+              <div class="ins-card-sub">Submitted attendance disputes from students</div>
+            </div>
+            <span class="ins-badge" id="appealsCountBadge">0 Appeals</span>
+          </div>
+
+          <div class="ins-table">
+            <div class="table-responsive">
+              <table class="table align-middle mb-0">
+                <thead class="ins-th">
+                  <tr>
+                    <th>Student Name</th>
+                    <th>Course / Class</th>
+                    <th>Reason</th>
+                    <th>Status</th>
+                    <th>Submitted Date</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody id="appealsTableBody">
+                  <tr>
+                    <td colspan="6" class="ins-empty">Loading appeals...</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <div class="offcanvas offcanvas-end ins-offcanvas" tabindex="-1" id="appealDetailsDrawer">
+    <div class="offcanvas-header ins-offcanvas-header">
+      <div>
+        <div class="fw-bold">Appeal Details</div>
+        <div class="small">Student, record, and review information</div>
+      </div>
+      <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+
+    <div class="offcanvas-body">
+      <div class="mb-3">
+        <div class="fw-bold mb-1">Student Name</div>
+        <div id="detailStudentName">—</div>
+      </div>
+
+      <div class="mb-3">
+        <div class="fw-bold mb-1">Email</div>
+        <div id="detailStudentEmail">—</div>
+      </div>
+
+      <div class="mb-3">
+        <div class="fw-bold mb-1">Course Name</div>
+        <div id="detailCourseName">—</div>
+      </div>
+
+      <div class="mb-3">
+        <div class="fw-bold mb-1">Class Section</div>
+        <div id="detailClassSection">—</div>
+      </div>
+
+      <div class="mb-3">
+        <div class="fw-bold mb-1">Attendance Record Status</div>
+        <div id="detailRecordStatus">—</div>
+      </div>
+
+      <div class="mb-3">
+        <div class="fw-bold mb-1">Session Date</div>
+        <div id="detailSessionDate">—</div>
+      </div>
+
+      <div class="mb-3">
+        <div class="fw-bold mb-1">Reason</div>
+        <div id="detailReason">—</div>
+      </div>
+
+      <div class="mb-3">
+        <div class="fw-bold mb-1">Evidence URL</div>
+        <div id="detailEvidenceUrl">—</div>
+      </div>
+
+      <div class="mb-3">
+        <div class="fw-bold mb-1">Status</div>
+        <div id="detailAppealStatus">—</div>
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label fw-bold">Review Note</label>
+        <textarea id="reviewNote" class="form-control" rows="4" placeholder="Write review note here"></textarea>
+      </div>
+
+      <div class="d-grid gap-2">
+        <button id="btnOpenApproveModal" class="btn btn-primary rounded-4" type="button">Approve Appeal</button>
+        <button id="btnOpenRejectModal" class="btn btn-outline-danger rounded-4" type="button">Reject Appeal</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="approveAppealModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content rounded-4">
+        <div class="modal-header">
+          <h5 class="modal-title">Approve Appeal</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+
+        <div class="modal-body">
+          Are you sure you want to approve this appeal?
+        </div>
+
+        <div class="modal-footer">
+          <button class="btn btn-light rounded-4" type="button" data-bs-dismiss="modal">Cancel</button>
+          <button id="btnConfirmApproveAppeal" class="btn btn-primary rounded-4" type="button">Approve</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="rejectAppealModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content rounded-4">
+        <div class="modal-header">
+          <h5 class="modal-title">Reject Appeal</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+
+        <div class="modal-body">
+          Are you sure you want to reject this appeal?
+        </div>
+
+        <div class="modal-footer">
+          <button class="btn btn-light rounded-4" type="button" data-bs-dismiss="modal">Cancel</button>
+          <button id="btnConfirmRejectAppeal" class="btn btn-danger rounded-4" type="button">Reject</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="/attendly/public/instructor/appeals/appeals.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
