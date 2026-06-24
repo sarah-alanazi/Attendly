@@ -125,23 +125,12 @@ The system follows a **3-tier architecture**:
 
 ---
 
-## 👩‍💻 Development Team
+## 👩‍💻 Development Name
 
 | Name |
 |------|
-| Aryam Nasser Al-Shammari |
-| Dalal Bardi Al-Shammari |
-| Duhayyah Ghazi Al-Shammari |
-| Majd Shabib Alrakhis |
-| Maryam Muner Mahdi Al-Alwan |
-| Rafeef Ahmed Al-Shammari |
-| Sarah Farhan Al-Anzi |
-| Suda Dughaim Al-Shammari |
-| Wejdan Marzouq Al-Anzi |
-| Yaqeen Muhayis Al-Shammari |
-| Zahraa Hussein Al Ibn Al-Sheikh |
+| Sarah Al-anazi |
 
-**Supervisor:** Dr. Haifa Ayad Al-Anazi
 
 ---
 
